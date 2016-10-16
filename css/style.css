@@ -1,0 +1,61 @@
+body, html {
+    height: 100%;
+}
+
+#topMapBar {
+    width: 100%;
+}
+
+#map{
+    height: 100vh; /* 653px */
+    <!-- width: 75%; -->
+}
+
+.mapTitle{
+    text-align: center;
+}
+
+#logoTitle{
+    color: #1A9FE9;
+    font-family: Helvetica Neue;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer{
+    padding: 20px 0;
+}
+
+/* DISTANCE MATRIX STYLES */
+
+#right-panel {
+    font-family: 'Roboto','sans-serif';
+    line-height: 20px;
+    padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+    font-size: 15px;
+}
+
+#right-panel select {
+    width: 100%;
+}
+
+#right-panel i {
+    font-size: 12px;
+}
+#right-panel {
+    float: right;
+    width: 48%;
+    padding-left: 2%;
+}
+#output {
+    font-size: 12px;
+}
+
+
+
+
+
+

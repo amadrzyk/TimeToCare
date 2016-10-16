@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TimeToCare</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <link rel="shortcut icon" href="http://d15dxvojnvxp1x.cloudfront.net/assets/favicon.ico">
+    <link rel="icon" href="http://d15dxvojnvxp1x.cloudfront.net/assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.tablesorter.min.js"></script>
+
+
+    <!-- My CSS Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav" id="topMapBar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div style="margin-left: 55px;">
+                    <div style="float: left">
+                        <img src="../img/TimeToCareLogo.png" alt="logo" style="width:60px; padding-top: 3px; padding-right: 4px;"/>
+                    </div>
+                    <div style="float: left">
+                        <a class="navbar-brand topnav" id="logoTitle" href="../index.html#">TimeToCare</a>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="../index.html#services">Services</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#contact">Contact</a>
+                    </li>
+                    <li>
+                        <div style="margin-right: 55px"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav >
+
+    <!--MAP FORMATTING-->
+    <div style="width: 100%">
+        <div style="float: left; width: 60%;" id="map"></div>
+        <div style="float: left; width: 40%">
+            <div style="height: 40px; width:100%; clear:both;"></div>
+            <div style="clear:both;" id="output"></div>
+
+
+            <!--TABLE OF HOURS-->
+            <div id="wrapper">
+                <table id="keywords" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center"><span>ER</span></th>
+                        <th style="text-align: center"><span>Address</span></th>
+                        <th style="text-align: center"><span>Travel Time (minutes)</span></th>
+                        <th style="text-align: center"><span>Wait Time (minutes)</span></th>
+                        <th style="text-align: center"><span>Time to Care (minutes)</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="lalign">Alberta Children's Hospital</td>
+                        <td>2888 Shaganappi Trail NW, Calgary, AB</td>
+                        <td id="tt1"></td>
+                        <td id="wt1"></td>
+                        <td id="time1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lalign">Foothills Medical Centre</td>
+                        <td>1403 29 St NW, Calgary, AB</td>
+                        <td id="tt2"></td>
+                        <td id="wt2"></td>
+                        <td id="time2"></td>
+                    </tr>
+                    <tr>
+                        <td class="lalign">Peter Lougheed Centre</td>
+                        <td>3500 26 Ave NE, Calgary, AB</td>
+                        <td id="tt3"></td>
+                        <td id="wt3"></td>
+                        <td id="time3"></td>
+                    </tr>
+                    <tr>
+                        <td class="lalign">Rockyview General Hospital</td>
+                        <td>7007 14 St SW, Calgary, AB</td>
+                        <td id="tt4"></td>
+                        <td id="wt4"></td>
+                        <td id="time4"></td>
+                    </tr>
+                    <tr>
+                        <td class="lalign">South Health Campus</td>
+                        <td>4448 Front St SE, Calgary, AB</td>
+                        <td id="tt5"></td>
+                        <td id="wt5"></td>
+                        <td id="time5"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                    $('#keywords').tablesorter();
+                });
+            </script>
+
+            <!--EXTRACT ADDRESS FROM URL-->
+            <script>
+                // THIS IS WHERE YOU ACCESS YOUR VARIABLES IN THE URL
+                var a = window.location.toString();
+                var address = a.substring(a.indexOf("=")+1).replace(/%20/g, " ");
+            </script>
+        </div>
+        <br style="clear: left;" />
+    </div>
+</body>
+
+
+    <script>
+
+      function initMap() {
+        var labels = 'O12345';
+        var labelIndex = 0;
+        var bounds = new google.maps.LatLngBounds;
+        var markersArray = [];
+
+          var origin1 = address;
+          var destinationA = '2888 Shaganappi Trail NW, Calgary, AB';
+          var destinationB = '1403 29 St NW, Calgary, AB';
+          var destinationC = '3500 26 Ave NE, Calgary, AB';
+          var destinationD = '7007 14 St SW, Calgary, AB';
+          var destinationE = '4448 Front St SE, Calgary, AB';
+          var waitTimes = [30,71,81,91,92];
+          var hospitals = ["Alberta Children's Hospital ","Foothills Medical Centre ","Peter Lougheed Centre ","Rockyview General Hospital ","South Health Campus "] ;
+          var totalTime = [0,0,0,0,0];
+
+        var destinationIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 55.53, lng: 9.4},
+          zoom: 10
+        });
+        var geocoder = new google.maps.Geocoder;
+
+        var service = new google.maps.DistanceMatrixService;
+        service.getDistanceMatrix({
+          origins: [origin1],
+          destinations: [destinationA, destinationB, destinationC, destinationD, destinationE],
+          travelMode: 'DRIVING',
+          unitSystem: google.maps.UnitSystem.METRIC,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status !== 'OK') {
+            alert('Error was: ' + status);
+          } else {
+            var originList = response.originAddresses;
+            var destinationList = response.destinationAddresses;
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            deleteMarkers(markersArray);
+
+            var showGeocodedAddressOnMap = function(asDestination) {
+              var icon = asDestination ? destinationIcon : originIcon;
+              return function(results, status) {
+                if (status === 'OK') {
+                  map.fitBounds(bounds.extend(results[0].geometry.location));
+                  markersArray.push(new google.maps.Marker({
+                    map: map,
+                    label: labels[labelIndex++ % labels.length],
+                    position: results[0].geometry.location,
+                    
+                  }));
+                } else {
+                  alert('Geocode was not successful due to: ' + status);
+                }
+              };
+            };
+            //outputDiv.innerHTML += "hello"+'<br>';
+
+
+           for (var i = 0; i < originList.length; i++) {
+              var results = response.rows[i].elements;
+              geocoder.geocode({'address': originList[i]},
+                  showGeocodedAddressOnMap(false));
+              for (var j = 0; j < results.length; j++) {
+                geocoder.geocode({'address': destinationList[j]},
+                    showGeocodedAddressOnMap(true));
+
+
+            totalTime[j] = numberOfMinutes(results[j].duration.text) + waitTimes[j]}
+
+      var caretime = [0,0,0,0,0];         
+      for(var i = 0; i < caretime.length; i++){
+        caretime[i] = totalTime[i];
+      }
+      document.getElementById("time1").innerText = caretime[0];
+      document.getElementById("time2").innerText = caretime[1];
+      document.getElementById("time3").innerText = caretime[2];
+      document.getElementById("time4").innerText = caretime[3];
+      document.getElementById("time5").innerText = caretime[4];
+
+      document.getElementById("wt1").innerText = waitTimes[0];
+      document.getElementById("wt2").innerText = waitTimes[1];
+      document.getElementById("wt3").innerText = waitTimes[2];
+      document.getElementById("wt4").innerText = waitTimes[3];
+      document.getElementById("wt5").innerText = waitTimes[4];
+
+
+      document.getElementById("tt1").innerText = numberOfMinutes(results[0].duration.text);
+      document.getElementById("tt2").innerText = numberOfMinutes(results[1].duration.text);
+      document.getElementById("tt3").innerText = numberOfMinutes(results[2].duration.text);
+      document.getElementById("tt4").innerText = numberOfMinutes(results[3].duration.text);
+      document.getElementById("tt5").innerText = numberOfMinutes(results[4].duration.text);
+
+
+            }
+          }
+        });
+      }
+
+      function numberOfMinutes(string){
+          parts = string.split(" ");
+            if (parts.length == 4 && parts[1] == "day" && parts[3] == "hours"){
+                console.log(string);
+                return parseInt(parts[0])*24*60 + parseInt(parts[2])*60;
+            } else if (parts.length == 4 && parts[1] == "hours" && parts[3] == "mins"){
+                return parseInt(parts[0])*60 + parseInt(parts[2]);
+            } else if (parts.length == 2 && parts[1] == "mins"){
+                return parseInt(parts[0]);
+            } else {
+                return string;
+            }
+      }
+
+      function deleteMarkers(markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);
+       }
+        markersArray = [];
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjGkX6gbOjiM6Ewg3cTeqGyK25z6YFdqQ&callback=initMap">
+    </script>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>TimeToCare</title>
 
     <!-- My CSS Stylesheet -->
     <link href="css/style.css" rel="stylesheet">

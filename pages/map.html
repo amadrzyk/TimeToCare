@@ -161,8 +161,8 @@
     <script>
 
       function initMap() {
-        var labels = 'O12345';
-        var labelIndex = 0;
+//        var labels = 'O12345';
+//        var labelIndex = 0;
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
 
@@ -173,13 +173,11 @@
           var destinationD = '7007 14 St SW, Calgary, AB';
           var destinationE = '4448 Front St SE, Calgary, AB';
           var waitTimes = [30,71,81,91,92];
-          var hospitals = ["Alberta Children's Hospital ","Foothills Medical Centre ","Peter Lougheed Centre ","Rockyview General Hospital ","South Health Campus "] ;
+//          var hospitals = ["Alberta Children's Hospital ","Foothills Medical Centre ","Peter Lougheed Centre ","Rockyview General Hospital ","South Health Campus "] ;
           var totalTime = [0,0,0,0,0];
 
-        var destinationIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=D|FF0000|000000';
-        var originIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var destinationIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=O|FFFF00|000000';
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 55.53, lng: 9.4},
           zoom: 10
@@ -211,7 +209,7 @@
                   map.fitBounds(bounds.extend(results[0].geometry.location));
                   markersArray.push(new google.maps.Marker({
                     map: map,
-                    label: labels[labelIndex++ % labels.length],
+//                    label: labels[labelIndex++ % labels.length],
                     position: results[0].geometry.location,
                     
                   }));

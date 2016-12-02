@@ -12,7 +12,7 @@ We built the components of our app with a few different languages and tools.  Th
 
 ## Challenges we ran into
 
-Challenges in our project mostly arose from the steep learning curve of what was required to build our application.  
+Challenges in our project mostly arose from the learning curve of what was required to build our application.  
 
 ## Accomplishments that we're proud of
 

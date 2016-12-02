@@ -12,10 +12,10 @@
 
   "require-dev" : {
     "heroku/heroku-buildpack-php": "*"
-  }
+  },
 
-  // "require": {
-  //   "ext-memcached": "*",
-  //   "sendgrid/sendgrid": "4.0.4"
-  // }
+  "require": {
+    "ext-memcached": "*",
+    "sendgrid/sendgrid": "4.0.4"
+  }
 }

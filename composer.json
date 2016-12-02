@@ -1,0 +1,21 @@
+{
+  "name": "alexmadrzyk/timetocare",
+  "description": "timetocare",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alex Madrzyk",
+      "email": "alexmadrzyk@gmail.com"
+    }
+  ],
+
+  "require-dev" : {
+    "heroku/heroku-buildpack-php": "*"
+  }
+
+  // "require": {
+  //   "ext-memcached": "*",
+  //   "sendgrid/sendgrid": "4.0.4"
+  // }
+}

@@ -4,7 +4,7 @@ The inspiration for our application stemmed from the desire to solve an issue th
 
 ## What it does
 
-TimeToCare is a web-based application designed to mitigate the long wait times experienced in hospital ER settings. It receives the address from the user, and displays it on the map, along with all of the hospitals in the city. It then calculates the travel time from the user to the hospital, and combines that with the hospital ER wait time to give the patient the best option to get treated.
+TimeToCare is a web-based application designed to mitigate the long wait times experienced in hospital ER settings. The website displays the user's location on the map, along with all of the hospitals in the city. It then calculates the travel time from the user to the hospital, and combines that with the hospital ER wait time to give the patient the best option to get treated.
 
 ## How we built it
 

@@ -20,7 +20,7 @@ We are very proud to have developed an app that we believe could have a major im
 
 ## What we learned
 
-Including the programs and tools we used to build TimeToCare, we also learned teamwork, the importance of clear communication and good design principles.
+Alongside gaining experience with the programs and tools we used to build TimeToCare, we also strengthened our teamwork and communication skills, while remaining focused on important coding and design principles.
 
 ## What's next for TimeToCare
 
